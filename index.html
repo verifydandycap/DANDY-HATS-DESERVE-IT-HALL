@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Dandy Hats Verification</title>
+    <title>Dandy Hats Verification - Modelo B</title>
     <style>
         body, html {
             margin: 0;
@@ -15,11 +15,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            overflow: hidden; /* Sin scroll */
+            overflow: hidden;
             justify-content: space-between;
         }
 
-        /* Imagen de Fondo (fondo.png) */
+        /* Imagen de Fondo */
         .background {
             position: fixed;
             top: 0;
@@ -32,7 +32,7 @@
             filter: brightness(0.4);
         }
 
-        /* LOGO DANDY EN LA ESQUINA SUPERIOR DERECHA */
+        /* Logo esquina superior */
         .corner-logo {
             position: fixed;
             top: 15px;
@@ -43,7 +43,7 @@
             pointer-events: none;
         }
 
-        /* Contenedor de la gorra (gorra.jpeg) */
+        /* Contenedor de la gorra */
         .hat-container {
             position: absolute;
             top: 50%;
@@ -62,7 +62,7 @@
             filter: drop-shadow(0 20px 40px rgba(0,0,0,0.8));
         }
 
-        /* Panel inferior */
+        /* Panel inferior translúcido */
         .bottom-panel {
             position: relative;
             z-index: 10;
@@ -86,7 +86,7 @@
             opacity: 0.9;
         }
 
-        /* Logo con brillo (logoo.png) */
+        /* Sello dorado con animación */
         .gold-seal {
             width: 85px;
             height: auto;
@@ -112,7 +112,7 @@
             margin-bottom: 15px;
         }
 
-        /* Botón estilo captura */
+        /* Botón de acción */
         .btn-about {
             display: inline-block;
             background-color: #000000;
@@ -146,15 +146,22 @@
 
     <script>
         function updateCounter() {
-            let count = localStorage.getItem('dandy_scans');
+            // Nombre de almacenamiento único para esta gorra específica
+            const STORAGE_ID = 'dandy_scans_cap_02';
+            
+            let count = localStorage.getItem(STORAGE_ID);
+            
             if (count === null) {
                 count = 1;
             } else {
                 count = parseInt(count) + 1;
             }
-            localStorage.setItem('dandy_scans', count);
+            
+            localStorage.setItem(STORAGE_ID, count);
             document.getElementById('counter').innerText = count;
         }
+
+        // Se ejecuta al cargar la página
         window.onload = updateCounter;
     </script>
 </body>
